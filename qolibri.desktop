@@ -1,6 +1,7 @@
 [Desktop Entry]
 Exec=qolibri
 Name=qolibri
+Comment=EPWING dictionary reader
 Type=Application
 Icon=qolibri
 Categories=Application;Utility;Dictionary;Qt;

@@ -105,16 +105,28 @@ unix:!macx {
     isEmpty(INSTALL_PREFIX):INSTALL_PREFIX=/usr
     isEmpty(INSTALL_BINDIR):INSTALL_BINDIR=$$INSTALL_PREFIX/bin
     isEmpty(INSTALL_DATADIR):INSTALL_DATADIR=$$INSTALL_PREFIX/share
+    isEmpty(INSTALL_APPLICATIONDIR):INSTALL_APPLICATIONDIR=$$INSTALL_DATADIR/applications
+    isEmpty(INSTALL_PIXMAPDIR):INSTALL_PIXMAPDIR=$$INSTALL_DATADIR/pixmaps
     isEmpty(INSTALL_PKGDATADIR):INSTALL_PKGDATADIR=$$INSTALL_DATADIR/$$TARGET
 
     DEFINES += $$defStr(PKGDATADIR, $$INSTALL_PKGDATADIR)
 
     target.path = $$INSTALL_BINDIR
-    INSTALLS += target
+
     translations.path = $$INSTALL_PKGDATADIR
     translations.files = translations
+
     samples.path = $$INSTALL_PKGDATADIR
     samples.files = i18n/qolibri/*
+
+    applications.path = $$INSTALL_APPLICATIONDIR
+    applications.files = qolibri.desktop
+
+    pixmaps.path = $$INSTALL_PIXMAPDIR
+    pixmaps.extra = cp images/qolibri-128.png images/qolibri.png
+    pixmaps.files = images/qolibri.png
+
+    INSTALLS += target applications pixmaps
 }
 
 INSTALLS += translations samples
